@@ -1,0 +1,73 @@
+server:
+  port: 8094
+spring:
+  profiles:
+    active: dev
+  main:
+    banner-mode: "off"
+    allow-bean-definition-overriding: true
+  application:
+    name: c2c
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.50.210:3306/im_dev?useSSL=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: abc.1234
+      filters: stat
+      maxActive: 3
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      asyncInit: true
+  redis:
+    host: 192.168.50.210
+    port: 6379
+    password: abc.1234
+    timeout: 10000
+    database: 2
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  kafka:
+    producer:
+      bootstrap-servers: 192.168.50.210:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 192.168.50.210:9092
+      group-id: c2c
+      auto-offset-reset: latest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      type: batch
+      ack-mode: manual_immediate
+      concurrency: 10
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.50.210:8848
+        namespace: ruyuan-im-dev
+  hbase:
+    quorum: 192.168.50.210
+    nodeParent: /hbase
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

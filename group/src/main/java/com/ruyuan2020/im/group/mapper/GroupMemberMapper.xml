@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ruyuan2020.im.group.mapper.GroupMemberMapper">
+
+    <select id="list" resultType="java.lang.Long">
+        <![CDATA[
+        SELECT DISTINCT(member_id)
+        FROM group_member
+        where group_id in (
+            SELECT group_id
+            FROM group_member
+            where member_id = #{memberId})
+          and member_id <> #{memberId}
+        ]]>
+    </select>
+</mapper>

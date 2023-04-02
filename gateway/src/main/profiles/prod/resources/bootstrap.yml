@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: prod
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 172.19.16.216:8848
+        namespace: ruyuan-im-prod
+        file-extension: yaml

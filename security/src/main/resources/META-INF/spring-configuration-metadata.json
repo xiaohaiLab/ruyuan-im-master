@@ -1,0 +1,89 @@
+{
+  "groups": [
+    {
+      "name": "security",
+      "type": "com.ruyuan2020.im.security.properties.SecurityProperties",
+      "sourceType": "com.ruyuan2020.im.security.properties.SecurityProperties"
+    },
+    {
+      "name": "security.code",
+      "type": "com.ruyuan2020.im.security.properties.CodeProperties",
+      "sourceType": "com.ruyuan2020.im.security.properties.SecurityProperties",
+      "sourceMethod": "getVerification()"
+    },
+    {
+      "name": "security.code.captcha",
+      "type": "com.ruyuan2020.im.security.properties.CaptchaProperties",
+      "sourceType": "com.ruyuan2020.im.security.properties.CodeProperties",
+      "sourceMethod": "getCode()"
+    },
+    {
+      "name": "security.code.sms",
+      "type": "com.ruyuan2020.im.security.properties.SmsProperties",
+      "sourceType": "com.ruyuan2020.im.security.properties.CodeProperties",
+      "sourceMethod": "getCode()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "security.whiteListUrls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.SecurityProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.authentication.url",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.UrlProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.code.captcha.length",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.security.properties.CaptchaProperties",
+      "defaultValue": 4
+    },
+    {
+      "name": "security.code.captcha.urls",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.CaptchaProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.code.captcha.expiresIn",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.security.properties.CaptchaProperties",
+      "defaultValue": 300
+    },
+    {
+      "name": "security.code.captcha.width",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.security.properties.CaptchaProperties",
+      "defaultValue": 80
+    },
+    {
+      "name": "security.code.captcha.height",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.security.properties.CaptchaProperties",
+      "defaultValue": 30
+    },
+    {
+      "name": "security.code.sms.length",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.security.properties.SmsProperties",
+      "defaultValue": 6
+    },
+    {
+      "name": "security.code.sms.urls",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.SmsProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.code.sms.expiresIn",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.security.properties.SmsProperties",
+      "defaultValue": 300
+    }
+  ]
+}

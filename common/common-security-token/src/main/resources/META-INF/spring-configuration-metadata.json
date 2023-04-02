@@ -1,0 +1,94 @@
+{
+  "groups": [
+    {
+      "name": "security",
+      "type": "com.ruyuan2020.im.security.properties.SecurityProperties",
+      "sourceType": "com.ruyuan2020.im.security.properties.SecurityProperties"
+    },
+    {
+      "name": "security.oauth2",
+      "type": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "sourceType": "com.ruyuan2020.im.security.properties.SecurityProperties",
+      "sourceMethod": "getOauth2()"
+    },
+    {
+      "name": "security.oauth2.clients",
+      "type": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "sourceMethod": "getClients()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "security.oauth2.clients",
+      "type": "java.util.List<com.ruyuan2020.im.security.properties.OAuth2ClientProperties>",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties"
+    },
+    {
+      "name": "security.oauth2.tokenStore",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "defaultValue": "jwt"
+    },
+    {
+      "name": "security.oauth2.keyPair",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "defaultValue": "jwt.jks"
+    },
+    {
+      "name": "security.oauth2.publicKey",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "defaultValue": "public.jks"
+    },
+    {
+      "name": "security.oauth2.alias",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.oauth2.keypass",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.oauth2.storepass",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.Oauth2Properties",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.oauth2.clients.clientId",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties"
+    },
+    {
+      "name": "security.oauth2.clients.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties"
+    },
+    {
+      "name": "security.oauth2.clients.accessTokenValidateSeconds",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties"
+    },
+    {
+      "name": "security.oauth2.clients.authorizedGrantTypes",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties"
+    },
+    {
+      "name": "security.oauth2.clients.scopes",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties"
+    },
+    {
+      "name": "security.oauth2.clients.realm",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.security.properties.OAuth2ClientProperties"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ruyuan2020.im.common.hbase.boot.HBaseAutoConfiguration

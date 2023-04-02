@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "security",
+      "type": "com.ruyuan2020.im.web.gateway.properties.SecurityProperties",
+      "sourceType": "com.ruyuan2020.im.web.gateway.properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "security.whiteListUrls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.ruyuan2020.im.web.gateway.properties.SecurityProperties",
+      "defaultValue": ""
+    }
+  ]
+}

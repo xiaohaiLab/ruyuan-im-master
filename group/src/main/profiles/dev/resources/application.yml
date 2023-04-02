@@ -1,0 +1,64 @@
+server:
+  port: 8093
+spring:
+  profiles:
+    active: dev
+  main:
+    banner-mode: "off"
+    allow-bean-definition-overriding: true
+  application:
+    name: group
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.50.210:3306/im_dev?useSSL=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: abc.1234
+      filters: stat
+      maxActive: 3
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      asyncInit: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.50.210:8848
+        namespace: ruyuan-im-dev
+  redis:
+    host: 192.168.50.210
+    port: 6379
+    password: abc.1234
+    timeout: 10000
+    database: 2
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+dubbo:
+  cloud:
+    subscribed-services: 'account,chat,c2g'
+  protocol:
+    name: dubbo
+    port: 28093
+  provider:
+    threads: 200
+  consumer:
+    check: false

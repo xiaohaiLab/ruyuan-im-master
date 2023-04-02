@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.ruyuan2020.im;
+option java_multiple_files = true;
+option java_package = "com.ruyuan2020.im.common.protobuf";
+option java_outer_classname = "MessageAckRequestProto";
+
+message MessageAckRequest {
+  uint32 chatType = 1;
+  uint64 chatId = 2;
+  uint64 memberId = 3;
+  uint64 messageId = 4;
+}

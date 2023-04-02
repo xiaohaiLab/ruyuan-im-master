@@ -1,0 +1,66 @@
+server:
+  port: 8099
+spring:
+  profiles:
+    active: dev
+  main:
+    banner-mode: "off"
+    allow-bean-definition-overriding: true
+  application:
+    name: im-route
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.50.210:8848
+        namespace: ruyuan-im-dev
+  redis:
+    host: 192.168.50.210
+    port: 6379
+    password: abc.1234
+    timeout: 10000
+    database: 2
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  kafka:
+    producer:
+      bootstrap-servers: 192.168.50.210:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 192.168.50.210:9092
+      group-id: im-route
+      auto-offset-reset: latest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      type: batch
+      ack-mode: manual_immediate
+dubbo:
+  cloud:
+    subscribed-services: auth
+  protocol:
+    name: dubbo
+    port: 28099
+  provider:
+    threads: 200
+  consumer:
+    check: false
+security:
+  oauth2:
+    publicKey: public.key
+im:
+  serverId: im-route
+  port: 9570
+  authenticate: false
+  heartbeat:
+    readTimeout: 30000
+  zk:
+    enable: true
+    retry: 3
+    intervalTime: 1000
+    zkServer: 192.168.50.210:2181

@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "spring.hbase",
+      "type": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties"
+    },
+    {
+      "name": "spring.hbase.htable",
+      "type": "com.ruyuan2020.im.common.hbase.boot.HTableProperties",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.hbase.quorum",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.hbase.rootDir",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.hbase.nodeParent",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.hbase.htable.threadsMax",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.hbase.htable.threadsCoreSize",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "spring.hbase.htable.threadsKeepAliveTime",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.common.hbase.boot.HBaseProperties",
+      "defaultValue": ""
+    }
+  ]
+}

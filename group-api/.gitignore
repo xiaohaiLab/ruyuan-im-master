@@ -1,0 +1,8 @@
+.idea
+target/
+logs/
+*.iml
+*.log
+pom.xml.versionsBackup
+maven-settings/
+build-project/

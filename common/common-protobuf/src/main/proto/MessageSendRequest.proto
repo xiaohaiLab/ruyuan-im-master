@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.ruyuan2020.im;
+
+option java_multiple_files = true;
+option java_package = "com.ruyuan2020.im.common.protobuf";
+option java_outer_classname = "MessageSendRequestProto";
+
+message MessageSendRequest {
+  uint64 messageId = 1;
+  uint32 chatType = 2;
+  uint64 fromId = 3;
+  uint64 toId = 4;
+  uint64 chatId = 5;
+  uint32 messageType = 6;
+  string content = 7;
+  uint64 sequence = 8;
+  uint64 timestamp = 9;
+}

@@ -1,0 +1,60 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.50.210:8848
+        namespace: ruyuan-im-dev
+    gateway:
+      routes:
+        - id: auth
+          uri: lb://auth
+          predicates:
+            - Path=/api/auth/**
+        - id: admin
+          uri: lb://admin
+          predicates:
+            - Path=/api/admin/**
+        - id: tenant
+          uri: lb://tenant
+          predicates:
+            - Path=/api/tenant/**
+        - id: account
+          uri: lb://account
+          predicates:
+            - Path=/api/account/**
+        - id: c2c
+          uri: lb://c2c
+          predicates:
+            - Path=/api/c2c/**
+        - id: c2g
+          uri: lb://c2g
+          predicates:
+            - Path=/api/c2g/**
+        - id: chat
+          uri: lb://chat
+          predicates:
+            - Path=/api/chat/**
+        - id: friend
+          uri: lb://friend
+          predicates:
+            - Path=/api/friend/**
+        - id: group
+          uri: lb://group
+          predicates:
+            - Path=/api/group/**
+        - id: iplist
+          uri: lb://iplist
+          predicates:
+            - Path=/api/iplist/**
+security:
+  oauth2:
+    publicKey: public.key
+  whiteListUrls:
+    - /api/auth/code/**
+    - /api/auth/token
+    - /api/auth/info
+    - /api/account/register

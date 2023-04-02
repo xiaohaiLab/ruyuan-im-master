@@ -1,0 +1,131 @@
+server:
+  port: 8096
+spring:
+  profiles:
+    active: dev
+  main:
+    banner-mode: "off"
+    allow-bean-definition-overriding: true
+  application:
+    name: auth
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.50.210:3306/im_dev?useSSL=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: abc.1234
+      filters: stat
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 50
+      asyncInit: true
+  redis:
+    host: 192.168.50.210
+    port: 6379
+    password: abc.1234
+    timeout: 3000
+    database: 2
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.50.210:8848
+        namespace: ruyuan-im-dev
+mybatis-plus:
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+dubbo:
+  cloud:
+    subscribed-services: admin,account,tenant
+  protocol:
+    name: dubbo
+    port: 29096
+  consumer:
+    check: false
+  provider:
+    threads: 10
+security:
+  code:
+    captcha:
+      expiresIn: 300 # 过期时间
+      width: 110 # 图片宽度
+      height: 40 # 图片高度
+      length: 4 # 图片字符数
+      urls: # 需要验证图形验证码的URL
+    #        - /api/auth/code/sms
+    #        - /api/auth/token?grantType=password
+    sms:
+      expiresIn: 300  #过期时间
+      length: 6 # 图片字符数
+      urls: # 需要验证短信验证码的URL
+  #        - /api/auth/token?grantType=mobile
+  authentication:
+    url: /api/auth/token # 认证URL
+  whiteListUrls: # 白名单
+    - /actuator/**
+    - /api/auth/code/**
+  oauth2:
+    clients: # 客户端
+      - clientId: admin # 客户端id
+        # 密钥
+        secret: vXvLIQjvVoqWxbcOV6oyhjZaU89wHMby7H3Hp6iHNkaU6ODF2PasvSZz2MA8aL4j
+        realm: admin # 认证域
+        authorizedGrantTypes: password,refresh_token  # 授权方式
+      - clientId: tenant
+        secret: vXvLIQjvVoqWxbcOV6oyhjZaU89wHMby7H3Hp6iHNkaU6ODF2PasvSZz2MA8aL4j
+        scopes: # 权限范围
+          - '*:/api/*/tenant/**'
+        realm: tenant
+        authorizedGrantTypes: password,mobile
+      - clientId: account
+        secret: vXvLIQjvVoqWxbcOV6oyhjZaU89wHMby7H3Hp6iHNkaU6ODF2PasvSZz2MA8aL4j
+        scopes:
+          - '*:/api/*/account/**'
+          - '*:/api/iplist/**'
+          - '*:/api/c2c/fetch'
+          - '*:/api/c2g/fetch'
+        realm: account
+        authorizedGrantTypes: password,mobile,wx
+    tokenStore: jwt
+    keyPair: jwt.jks
+    keypass: Ry123456
+    storepass: Ry123456
+    alias: jwt
+wx:
+  mp:
+    appId: wxf2de23236aad4d80
+    secret: 7df38bf085c74b5b23af7148d67a7df9
+    token: token_59464774
+    aesKey:
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: false
+  metrics:
+    tags:
+      application: ${spring.application.name}

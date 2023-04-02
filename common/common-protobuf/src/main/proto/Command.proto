@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.ruyuan2020.im;
+option java_multiple_files = true;
+option java_package = "com.ruyuan2020.im.common.protobuf";
+option java_outer_classname = "CommandProto";
+
+message Command {
+  uint32 type = 1;
+  uint64 userId = 2;
+  uint32 client = 3;
+  bytes body = 4;
+}

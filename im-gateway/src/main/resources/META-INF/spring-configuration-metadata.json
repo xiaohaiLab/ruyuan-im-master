@@ -1,0 +1,101 @@
+{
+  "groups": [
+    {
+      "name": "im",
+      "type": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties"
+    },
+    {
+      "name": "im.zk",
+      "type": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "sourceMethod": "getZk()"
+    },
+    {
+      "name": "im.heartbeat",
+      "type": "com.ruyuan2020.im.gateway.properties.HeartbeatProperties",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "sourceMethod": "getHeartbeat()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "im.serverId",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.ipAddress",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.route.properties.ConfigProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.connectionCheckTime",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "defaultValue": 3000
+    },
+    {
+      "name": "im.protocol",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "defaultValue": "ws"
+    },
+    {
+      "name": "im.routeServers",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.maxOnlineCount",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.zk.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "im.zk.zkServer",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.zk.intervalTime",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": 1000
+    },
+    {
+      "name": "im.zk.retry",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": 3
+    },
+    {
+      "name": "im.heartbeat.heartbeatInterval",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.HeartbeatProperties",
+      "defaultValue": 5000
+    },
+    {
+      "name": "im.heartbeat.readTimeout",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.HeartbeatProperties",
+      "defaultValue": 30000
+    }
+  ]
+}

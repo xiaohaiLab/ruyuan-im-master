@@ -1,0 +1,21 @@
+server:
+  port: 8100
+spring:
+  profiles:
+    active: dev
+  main:
+    banner-mode: "off"
+    allow-bean-definition-overriding: true
+  application:
+    name: iplist
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.50.210:8848
+        namespace: ruyuan-im-dev
+im:
+  zk:
+    enable: true
+    retry: 3
+    intervalTime: 1000
+    zkServer: 192.168.50.210:2181

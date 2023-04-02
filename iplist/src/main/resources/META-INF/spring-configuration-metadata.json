@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "name": "im",
+      "type": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties"
+    },
+    {
+      "name": "im.zk",
+      "type": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ConfigProperties",
+      "sourceMethod": "getZk()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "im.zk.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "im.zk.zkServer",
+      "type": "java.lang.String",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "im.zk.intervalTime",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": 1000
+    },
+    {
+      "name": "im.zk.retry",
+      "type": "java.lang.Integer",
+      "sourceType": "com.ruyuan2020.im.gateway.properties.ZookeeperProperties",
+      "defaultValue": 3
+    }
+  ]
+}
